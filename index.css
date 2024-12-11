@@ -1,0 +1,180 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background: SkyBlue;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container{
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 14px 14px 0 0 lightslategray;
+    margin-top: 10px;
+}
+.winning-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+.complete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.completion-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+.startGame{
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(3,100px);
+    grid-template-rows: repeat(1,100px);
+}
+.startGame .card{
+    font-size: 1.2rem;
+    user-select: none;
+}
+.card{
+    text-align: center;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.card div{
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    color: skyblue;
+    background:  white;
+    border-radius: 10px;
+    transition: all 500ms ease-out;
+    backface-visibility: hidden;
+    box-shadow:0 3px 10px rebeccapurple;
+    position: absolute;
+}
+.startGame button{
+    cursor: pointer;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow:0 3px 10px rebeccapurple;
+    color: white;
+    background: skyblue;
+    
+}
+.startGame .card.active div{
+    border:2px solid skyblue;
+}
+.card .back{
+    transform: rotateY(-180deg);
+
+}
+.startGame .card:hover .front ,
+.card.flip .front{
+    transform: rotateY(180deg);
+
+}
+.startGame .card:hover .back ,
+.card.flip .back{
+    transform: rotateY(0deg);
+}
+
+.fa-repeat{
+    font-size: 25px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+.playground{
+    display: grid;
+    gap: 20px;
+    display: none;
+}
+.card.shake{
+    animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+    0%,
+    100%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-13px);
+    }
+    40%{
+        transform: translateX(13px);
+    }
+    60%{
+        transform: translateX(-8px);
+    }
+    80%{
+        transform: translateX(8px);
+    }
+    
+}
+.card.match{
+    animation: rubberBand 1s linear forwards;
+}
+@keyframes rubberBand {
+    0%{transform:scaleX(1);
+    }
+    40%{
+        transform: scaleX(1.12) scaleY(0.75);
+    }
+    55%{
+        transform: scaleX(0.85) scaleY(1);
+    }
+    65%{
+        transform: scaleX(1.09) scaleY(0.85);
+    }
+    75%{
+        transform: scaleX(0.9) scaleY(1);
+    }
+    90%{
+        transform: scaleX(1.05) scaleY(0.95);
+    }
+    100%{
+        transform: scaleX(1) scaleY(1);
+    }
+    
+}
